@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         id++;
         newPost.id = id;
         newPost.addEventListener("click",()=>{
-          setState({location:"entry", id:newPost.id}, newPost.entry)
+          setState({location:"entry", id:newPost.id}, false, newPost.entry)
         })
 
         document.querySelector('main').appendChild(newPost);
@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.querySelector('header img').addEventListener('click', () => {
-  setState({location: 'settings'});
+  setState({location: 'settings'}, false);
 });
 
 document.querySelector('h1').addEventListener('click', () => {
-  setState({location: 'home'});
+  setState({location: 'home'}, false);
 });
 
 window.addEventListener('popstate', (event) => {
-  setState(event.state);
+  setState(event.state, true);
 });
